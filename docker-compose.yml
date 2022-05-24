@@ -26,7 +26,6 @@ services:
       - DB_NAME=$MONGODB_DATABASE
       - DB_PORT=$MONGODB_CONTAINER_PORT
       - PORT=$APP_CONTAINER_PORT
-      - USE_IN_MEMORY_DB=$USE_IN_MEMORY_DB
     labels:
       kompose.service.type: LoadBalancer
 

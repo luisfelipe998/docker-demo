@@ -1,4 +1,4 @@
-FROM node:16.15.0
+FROM mhart/alpine-node:16.4
 WORKDIR /
 COPY ./package.json ./
 RUN npm install
