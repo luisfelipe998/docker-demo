@@ -1,5 +1,35 @@
 ## Trabalho GB
 
+## Conteudo para a apresentação
+
+- Introdução
+
+- O que são containers
+- diferenças entre containers e maquinas virtuais
+
+- Alternativas de containerização
+    - Docker, podman, buildah, etc
+    - overview de cada tecnologia
+
+- Como o docker funciona
+    - arquitetura, daemon, cli, network, container, image, data volumes
+    - docker desktop
+    - dockerfile
+    - docker-compose
+    - alguns comandos basicos do docker
+    - dockerhub e outros registries (como distribuir imagens)
+    - containerização para cloud computing (usando o docker com o kubernetes)
+
+- Comparação docker vs podman
+    - vantagens e desvatagens
+
+- Demo
+
+- Conclusão
+
+- Referências
+
+
 ## Roteiro para a demo
 
 1. Apresentar Aplicação
