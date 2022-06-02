@@ -12,6 +12,8 @@ services:
       - $MONGODB_LOCAL_PORT:$MONGODB_CONTAINER_PORT
     volumes:
       - db:/data/db
+    networks:
+      - network
   app:
     # build: .
     image: luisfelipe998/docker-demo:0.0.1
@@ -26,8 +28,14 @@ services:
       - DB_NAME=$MONGODB_DATABASE
       - DB_PORT=$MONGODB_CONTAINER_PORT
       - PORT=$APP_CONTAINER_PORT
+    networks:
+      - network
     labels:
       kompose.service.type: LoadBalancer
 
 volumes:
   db:
+
+networks:
+  network:
+    driver: bridge
