@@ -1,59 +1,36 @@
-## Trabalho GB
+# Docker Demo
 
-## Conteudo para a apresentação
-
-- Introdução
-
-- O que são containers
-- diferenças entre containers e maquinas virtuais
-
-- Alternativas de containerização
-    - Docker, podman, buildah, etc
-    - overview de cada tecnologia
-
-- Como o docker funciona
-    - arquitetura, daemon, cli, network, container, image, data volumes
-    - docker desktop
-    - dockerfile
-    - docker-compose
-    - alguns comandos basicos do docker
-    - dockerhub e outros registries (como distribuir imagens)
-    - containerização para cloud computing (usando o docker com o kubernetes)
-
-- Comparação docker vs podman
-    - vantagens e desvatagens
-
-- Demo
-
-- Conclusão
-
-- Referências
+Simple repository to showcase containerization with docker and docker compose. Also has scripts to convert docker-compose.yml into k8s descriptors.
 
 
-## Roteiro para a demo
+## Scripts 
 
-1. Apresentar Aplicação
-    - server
-    - endpoints
-    - função hash
-    - persistencia
+- Push image to registry: `sh push_to_registry.sh`
+- Run with docker: `sh run.sh`
+- Convert docker-compose to k8s: `sh k8s_convert.sh
+- Apply k8s descriptors on cluster: `sh k8s_install.sh`
 
-2. Apresentar dockerfile
-    - comentar comandos no dockerfile
-    - fazer um push to registry e mostrar imagem no registry e local
-    - rodar com banco in memory
-    - mostrar container com ls
+The application is mock sign up/ sign in. 
 
-3. Apresentar docker compose
-    - Falar sobre a imagem do mongodb
-    - Apresentar configuração do docker compose
-    - rodar com o docker compose
-    - mostrar data volume criado e network criada
-    - mostrar que mesmo que o mongo caia, o volume continua persistido
+## Endpoints
 
-4. Apresentar kubernetes
-    - Explicar pra que serve o kubernetes e as vantangens
-    - Converter o docker compose em descritores com o kompose
-    - Explicar que tem os descritores que definem o estado do recurso no cluster
-    - Aplicar descritor no cluster, e mostrar recursos no cluster
-    - testar
+### /register
+
+Post request with body:
+```
+{
+    "username": "John Doe",
+    "password": "your-password"
+}
+```
+This endpoints saves the user in a mongodb with a simple hash algorithm. 
+
+### /login
+Post request with body:
+```
+{
+    "username": "John Doe",
+    "password": "your-password"
+}
+```
+This endpoints validates the user login comparing the generated hash from the provided password with the hash stored during registration. 
